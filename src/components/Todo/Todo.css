@@ -56,3 +56,26 @@ input[type="checkbox"]:checked + label::before {
   font-weight: 400;
   align-items: center;
 }
+.todos {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  align-items: center;
+}
+.delete {
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: hsl(233, 14%, 35%);
+}
+.delete:hover {
+  background: hsl(355, 100%, 54%);
+}
+@media screen and (max-width: 500px) {
+  .todo-control {
+    width: 23rem;
+  }
+}

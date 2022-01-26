@@ -1,11 +1,11 @@
 import './TodoList.css'
 import Todo from '../Todo/Todo'
-const TodoList = (props) =>{
+const TodoList = ({taskList,setTaskList}) =>{
     
     return (
         <div className="todo-list">
-            {props.todos.map((todo,id) =>{
-                return <Todo key={id} todo={todo} />
+            {taskList.map((todo,id) =>{
+                return <Todo key={id} todo={todo} taskList={taskList} setTaskList={setTaskList} />
             })}
         
         </div>

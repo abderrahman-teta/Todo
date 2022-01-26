@@ -29,9 +29,10 @@ function App() {
       <div className="control">
         <input type="text" placeholder="Add New Task" value={task} onChange={handleChange}/>
         <button onClick={handleClick}>Save</button>
+        
       </div>
       </div>
-      <TodoList  todos={taskList}/>
+      <TodoList  taskList={taskList} setTaskList={setTaskList}/>
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import './Todo.css'
 import { useState} from 'react';
-const Todo = (props) =>{
-    console.log(props);
+const Todo = ({taskList,setTaskList,todo}) =>{
+    
     const [checked,setChecked] = useState(true)
     
     const handleClick = (e) => {
@@ -14,13 +14,26 @@ const Todo = (props) =>{
         }
         
     }
+    const handleDelete = (e) =>{
+        console.log(e.target.value);
+        let filterdList = taskList.filter(todo =>{
+            return !todo.includes(e.target.value)
+        })
+        setTaskList(filterdList)
+        console.log(setTaskList);
+    }
+    
     return (
         <div className="todo-control" >
           <div className="checkbox">
-            <input type="checkbox" name="todo-check" id={"id_"+props.todo} onClick={handleClick}/>
-          <label htmlFor={"id_"+props.todo} > </label>
+            <input type="checkbox" name="todo-check" id={"id_"+ todo} onClick={handleClick}/>
+          <label htmlFor={"id_"+ todo} > </label>
           </div>
-          {checked? <h2 className="todo" >{props.todo}</h2>  :  <del className="todo-del" >{props.todo}</del>}
+          <div className='todos'>
+          {checked? <h2 className="todo" >{todo}</h2>  :  <del className="todo-del" >{todo}</del>}
+          <button onClick={handleDelete} className="delete" value={todo}>Dlete</button>
+          </div>
+          
          
         </div>
     )
